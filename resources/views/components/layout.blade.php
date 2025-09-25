@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="h-full">
@@ -21,13 +21,13 @@
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                                <x-nav-link href="/" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</x-nav-link>
-                                <x-nav-link href="/posts" >My post</x-nav-link>
+                                <x-nav-link href="/"  :active="request()->is('/')" class="font-medium p-3 py-2 rounded-lg">Home</x-nav-link>
+                                <x-nav-link href="/post" :active="request()->is('post')" class="font-medium p-3 py-2 rounded-lg">Post</x-nav-link>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
         </nav>
 
         <header
