@@ -7,9 +7,13 @@
         <div class="flex gap-6">
             <div class="flex-1 p-6 border border-gray-700 rounded-lg">
                 <h1 class="text-xl font-semibold text-white mb-4">{{ $post->title }}</h1>
-                <p class="text-gray-300 mb-6">[Post Body Content Goes Here]</p>
+                <div class="mb-4">
+                    @foreach ($post->tags as $tag)
+                        <p class="text-white">Tags: <span class="text-gray-500 rounded italic">{{ $tag->name }}</span></p>
+                    @endforeach
+                </div>
 
-                <x-button href="/post/{{ $post->id }}/edit" class="m-2 bg-gray-600">
+                <x-button href="/post/{{ $post->id }}/edit" class="bg-gray-600">
                     Edit
                 </x-button>
 

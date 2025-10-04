@@ -21,7 +21,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $tags = \App\Models\Tag::all();
+        return view('posts.create', ['tags' => $tags]);
     }
 
     /**
@@ -30,10 +31,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|max:255|string'
+            'title' => 'required|max:255|string',
+            'tags' => 'array',
+            'tags.*' => 'exists:tags,id'
         ]);
 
-        Post::create([...$validated, 'user_id' => 1]);
+        $post = Post::create([...$validated, 'user_id' => 1]);
+
+        if ($request->has('tags')) {
+            $post->tags()->sync($validated['tags']);
+        }
+
         return redirect('/post');   
     }
 

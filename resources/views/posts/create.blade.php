@@ -19,6 +19,15 @@
                     <x-form-error name="title" />
                 </x-form-field>
 
+                <x-form-field>
+                    <x-form-label for="tags">Tags</x-form-label>
+                    <select name="tags[]" id="tags" multiple class="text-black">
+                        @foreach($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </x-form-field>                
+
                 <div class="mt-6 flex items-center justify-end gap-x-6">
                     <x-button href="/post" class="text-sm/6 font-semibold">Cancel</x-button>
                     
