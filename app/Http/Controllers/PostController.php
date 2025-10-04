@@ -42,8 +42,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', ['post' => $post]);
-    }
+        // eager load user + comments
+        $post->load(['user', 'comments.user']);
+    
+        return view('posts.show', compact('post'));
+    }    
 
     /**
      * Show the form for editing the specified resource.
