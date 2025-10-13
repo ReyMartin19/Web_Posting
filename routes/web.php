@@ -10,17 +10,27 @@ Route::get('/', function () {
     return view('index');
 });
 
+//post
 Route::get('/post', [PostController::class, 'index']);
-Route::get('/post/create', [PostController::class, 'create']);
-Route::post('/post/store', [PostController::class, 'store']);
-Route::get('/post/{post}', [PostController::class, 'show']);
-Route::get('/post/{post}/edit', [PostController::class, 'edit']);
-Route::put('/post/{post}', [PostController::class, 'update']);
-Route::delete('/post/{post}', [PostController::class, 'destroy']);
+Route::get('/post/create', [PostController::class, 'create'])
+    ->middleware('auth');
+Route::post('/post/store', [PostController::class, 'store'])
+    ->middleware('auth');
+Route::get('/post/{post}', [PostController::class, 'show']) 
+    ->middleware('auth');
+Route::get('/post/{post}/edit', [PostController::class, 'edit'])
+    ->middleware('auth')
+    ->can('update', 'post');
+Route::put('/post/{post}', [PostController::class, 'update'])
+    ->middleware('auth');
+Route::delete('/post/{post}', [PostController::class, 'destroy'])
+    ->middleware('auth')
+    ->can('delete', 'post');
 
+// comments
 Route::post('/post/{post}/comment', [CommentController::class, 'store']);
 
-//auth
+// auth
 Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);

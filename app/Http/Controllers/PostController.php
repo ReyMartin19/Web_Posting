@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -33,10 +34,10 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255|string',
             'tags' => 'array',
-            'tags.*' => 'exists:tags,id'
+            'tags.*' => 'exists:tags,id',
         ]);
 
-        $post = Post::create([...$validated, 'user_id' => 1]);
+        $post = Post::create([...$validated, 'user_id' => Auth::user()->id]);
 
         if ($request->has('tags')) {
             $post->tags()->sync($validated['tags']);

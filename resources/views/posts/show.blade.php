@@ -12,18 +12,21 @@
                         <p class="text-white">Tags: <span class="text-gray-500 rounded italic">{{ $tag->name }}</span></p>
                     @endforeach
                 </div>
-
-                <x-button href="/post/{{ $post->id }}/edit" class="bg-gray-600">
-                    Edit
-                </x-button>
-
-                <form method="POST" action="/post/{{ $post->id }}" class="inline">
-                    @method('DELETE')
-                    @csrf
-                    <x-form-button type="submit" class="m-2 bg-red-600 hover:bg-red-700">
-                        Delete
-                    </x-form-button>
-                </form>
+                @can('update', $post)
+                    <x-button href="/post/{{ $post->id }}/edit" class="bg-gray-600">
+                        Edit
+                    </x-button>
+                @endcan
+                
+                @can('delete', $post)
+                    <form method="POST" action="/post/{{ $post->id }}" class="inline">
+                        @method('DELETE')
+                        @csrf
+                        <x-form-button type="submit" class="m-2 bg-red-600 hover:bg-red-700">
+                            Delete
+                        </x-form-button>
+                    </form>            
+                @endcan
             </div>
 
             <div class="flex-1 bg-gray-800/50 p-6 border border-gray-700 rounded-lg overflow-y-auto">
