@@ -1,7 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-
-
     <div class="grid grid-cols-4">
         @foreach ($posts as $post)
             <div class="rounded-lg m-2 p-4 bg-gray-500/50">

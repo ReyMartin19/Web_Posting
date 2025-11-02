@@ -1,8 +1,5 @@
-<x-layout>
-    <x-slot:heading>
-        Post by {{ $post->user->name }}
-    </x-slot:heading>
-
+@extends('layouts.layout')
+@section('content')
     <div class="w-full">
         <div class="flex gap-6">
             <div class="flex-1 p-6 border border-gray-700 rounded-lg">
@@ -63,4 +60,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+@endsection

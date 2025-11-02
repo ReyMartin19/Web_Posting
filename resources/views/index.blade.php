@@ -1,19 +1,21 @@
-<x-layout>
-    <x-slot:heading>
-        Home
-    </x-slot:heading>
+@extends('layouts.guest')
+@section(section: 'content')
 
-    <div class="grid grid-cols-4">
-        @foreach ($posts as $post)
-            <div class="rounded-lg m-2 p-4 bg-gray-500/50">
-                <a href="/post/{{ $post->id }}">
-                    <p class="text-white">{{ $post->title }}</p>
-                    @foreach ($post->tags as $tag)
-                        <span class="text-gray-300 text-sm italic">{{ $tag->name }}</span>
-                    @endforeach
-                    <p class="text-sm  text-blue-400 mt-2">--{{ $post->user->name }}</p>
-                </a>
+    <div class="flex gap-8 items-center">
+        <div class="h-40 w-40">
+            <img src="{{ asset('images/worlwide.png') }}" alt="">
+        </div>
+        <div class="flex flex-col gap-4">
+            <div>
+                <h1 class="text-4xl font-bold text-white mt-4">Welcome to GlobalConnect</h1>
+                <p class="text-gray-400 mt-2">Connecting the world, one click at a time.</p>
             </div>
-        @endforeach
-    </div>  
-</x-layout>
+            <div>
+                @guest
+                    <a href="/login" class="mt-4 inline-block rounded-md bg-indigo-500 px-4 py-2 text-white hover:bg-indigo-400">Get Started</a>
+                @endguest
+            </div>
+        </div>
+    </div>
+    
+@endsection

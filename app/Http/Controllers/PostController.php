@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Auth::user()->posts()->with('tags')->get();
-        return view('index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts]);
     }
 
     /**

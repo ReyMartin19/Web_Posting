@@ -1,7 +1,6 @@
-<x-layout>
-    <x-slot:heading>
-        Create a new post
-    </x-slot:heading>
+@extends('layouts.layout')
+
+@section('content')
 
     <form method="POST" action="/post/store">
         @csrf
@@ -39,4 +38,4 @@
             </div>
         </div>
     </form>
-</x-layout>
+@endsection

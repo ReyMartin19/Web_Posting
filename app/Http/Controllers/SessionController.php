@@ -24,7 +24,7 @@ class SessionController extends Controller
             'email' => 'The provided credentials are incorrect.'
         ]);
 
-        return redirect('/');
+        return redirect('/home');
     }
 
     public function destroy(){

@@ -2,15 +2,19 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisteredController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
 Route::get('/', function () {
-    $post = Post::all();
-    return view('index', ['posts' => $post]);
-});
+    return view('index');
+})->middleware('guest');
+
+//home
+Route::get('/home', [HomeController::class, 'index'])
+    ->middleware('auth');
 
 //post
 Route::get('/post', [PostController::class, 'index'])

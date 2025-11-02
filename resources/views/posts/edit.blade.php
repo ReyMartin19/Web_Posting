@@ -1,7 +1,5 @@
-<x-layout>
-    <x-slot:heading>
-        Edit Post
-    </x-slot:heading>
+@extends('layouts.layout')
+@section('content')
     
     <form method="POST" action="/post/{{ $post->id }}">
         @method('PUT')
@@ -30,4 +28,4 @@
         </div>
     </form>
     
-</x-layout>
+@endsection

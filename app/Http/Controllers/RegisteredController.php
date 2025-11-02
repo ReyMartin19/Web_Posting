@@ -23,6 +23,6 @@ class RegisteredController extends Controller
 
         Auth::login($user);
 
-        return redirect('/post');
+        return redirect('/home');
     }
 }

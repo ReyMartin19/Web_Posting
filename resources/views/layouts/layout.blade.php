@@ -18,13 +18,13 @@
                     <div class="flex w-full justify-between">
                         <div class="flex items-center">
                             <div class="shrink-0">
-                                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                                <img src="{{ asset('images/worlwide.png') }}"
                                     alt="Your Company" class="size-8" />
                             </div>
                             @auth
                                 <div class="hidden md:block">
                                     <div class="ml-10 flex items-baseline space-x-4">
-                                        <x-nav-link href="/"  :active="request()->is('/')" class="font-medium p-3 py-2 rounded-lg">Home</x-nav-link>
+                                        <x-nav-link href="/home"  :active="request()->is('/home')" class="font-medium p-3 py-2 rounded-lg">Home</x-nav-link>
                                         <x-nav-link href="/post" :active="request()->is('post')" class="font-medium p-3 py-2 rounded-lg">Post</x-nav-link>
                                     </div>
                                 </div>
@@ -38,11 +38,6 @@
                             </div>
 
                             <div class="flex gap-3">
-                                @guest
-                                    <x-button href="/login">Login</x-button>
-                                    <x-button href="/register">Register</x-button>
-                                @endguest
-
                                 @auth
                                     <form action="/logout" method="POST">
                                         @csrf
@@ -55,18 +50,10 @@
                 </div>
             </div>  
         </nav>
-        @auth
-            <header
-                class="relative bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-white/10">
-                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex justify-between">
-                    <h1 class="text-3xl font-bold tracking-tight text-white">{{ $heading }}</h1>
-                    
-                </div>
-            </header>
-        @endauth
+
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                {{ $slot  }}
+                @yield('content')
             </div>
         </main>
 
