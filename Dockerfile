@@ -21,6 +21,7 @@
     # Enable Apache rewrite module & fix DocumentRoot to /public
     RUN a2enmod rewrite \
         && sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf \
+        && sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/apache2.conf \
         && sed -i 's|Listen 80|Listen 10000|g' /etc/apache2/ports.conf
     
     # Copy Composer from the official image
