@@ -13,8 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index', ['posts' => $posts]);
+        $posts = Auth::user()->posts()->with('tags')->get();
+        return view('index', ['posts' => $posts]);
     }
 
     /**
