@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Edit {{ $post->title }}')
 @section('content')
     
     <form method="POST" action="/post/{{ $post->id }}">

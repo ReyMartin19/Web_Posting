@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('title', 'Create New Post')
 @section('content')
 
     <form method="POST" action="/post/store">

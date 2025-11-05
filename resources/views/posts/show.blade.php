@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', $post->title)
 @section('content')
     <div class="w-full">
         <div class="flex gap-6">

@@ -1,9 +1,6 @@
 @extends('layouts.guest')
 @section('content')
 
-    
-
-    
         <div class="hidden lg:flex w-1/2 bg-[#0b0f1a]/80 backdrop-blur-sm items-center justify-center p-12 border-none rounded-lg">
             <div class="max-w-md text-center">
                 <h1 class="text-3xl font-extrabold mb-4">Connect with the world.</h1>
@@ -16,8 +13,9 @@
         
         <div class="flex flex-col justify-center items-center w-full  lg:w-1/2 px-10 py-12">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                <img src="{{ asset('images/worlwide.png') }}" alt="Your Company"
+                <a href="/"><img src="{{ asset('images/worlwide.png') }}" alt="Your Company"
                     class="mx-auto h-10 w-auto" />
+                </a>
                 <h2 class="mt-6 text-center text-2xl/9 font-bold tracking-tight text-white">Create an account account</h2>
             </div>
 

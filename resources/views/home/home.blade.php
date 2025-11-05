@@ -1,6 +1,7 @@
 @extends('layouts.layout')
+@section('title', 'Home')
 @section('content')
-    <div class="grid grid-cols-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-2">
         @foreach ($posts as $post)
             <div class="rounded-lg m-2 p-4 bg-gray-500/50">
                 <a href="/post/{{ $post->id }}">

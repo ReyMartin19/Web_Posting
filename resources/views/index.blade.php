@@ -1,14 +1,14 @@
 @extends('layouts.guest')
 @section(section: 'content')
 
-    <div class="flex gap-8 items-center">
+    <div class="flex gap-8 items-center p-9">
         <div class="h-40 w-40">
             <img src="{{ asset('images/worlwide.png') }}" alt="">
         </div>
         <div class="flex flex-col gap-4">
             <div>
-                <h1 class="text-4xl font-bold text-white mt-4">Welcome to GlobalConnect</h1>
-                <p class="text-gray-400 mt-2">Connecting the world, one click at a time.</p>
+                <h1 class="text-4xl font-bold text-white mt-4">Welcome to <span class="text-blue-400">SpitItS$t</span></h1>
+                <p class="text-gray-400 mt-2">Sharing thoughts, facts and jokes around the world.</p>
             </div>
             <div>
                 @guest

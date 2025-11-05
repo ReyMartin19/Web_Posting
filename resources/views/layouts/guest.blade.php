@@ -14,11 +14,7 @@
 <body class="h-full">
     <div class="min-h-full">        
         <main>
-            <div class="flex h-screen items-center justify-center">
-                <div class="hidden lg:block absolute top-50 left-320 w-40 h-40 bg-red-900 rounded-full blur-sm -z-10">
-                </div>
-                <div class="hidden lg:block absolute top-130 left-150 w-40 h-40 bg-red-900 rounded-full blur-sm -z-10">
-                </div>
+            <div class="flex h-screen items-center justify-center">                 
                 <div class="flex bg-white/10 backdrop-blur-md text-white sm:rounded-2xl rounded-3xl shadow-xl">
                     @yield('content')
                 </div>

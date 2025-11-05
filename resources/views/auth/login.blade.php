@@ -6,9 +6,9 @@
     <div class="flex flex-col justify-center items-center w-full lg:w-1/2 px-8 py-12">
         <div class="w-full max-w-sm">
             <div class="flex justify-center mb-6">
-                <img src="{{ asset('images/worlwide.png') }}" alt="Your Company" class="h-12 w-auto">
+               <a href="/"><img src="{{ asset('images/worlwide.png') }}" alt="Your Company" class="h-12 w-auto"></a> 
             </div>
-            <h2 class="text-center text-2xl font-bold mb-8">Sign in to your account</h2>
+            <h2 class="text-center text-2xl font-bold mb-8">Sign in</h2>
 
             <form action="/login" method="POST" class="space-y-6">
                 @csrf
